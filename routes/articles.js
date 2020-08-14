@@ -12,6 +12,7 @@ router.get("/", auth.optional, async (req, res) => {
         res.json(articles);
     } catch (error) {
         console.log(error);
+        res.send("ERROR!").status(404);
     }
 });
 
@@ -31,6 +32,7 @@ router.post(
             res.json(newArticle);
         } catch (error) {
             console.log(error);
+            res.send("ERROR!").status(404);
         }
     }
 );

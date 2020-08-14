@@ -9,6 +9,7 @@ router.get("/", async (req, res) => {
     res.send("User Route");
   } catch (error) {
     console.log(error);
+    res.send("ERROR!").status(404);
   }
 });
 // User.findOne(email)
@@ -25,6 +26,7 @@ router.post('/login', validationHandler(loginUserSchema), async (req, res)=>{
         res.send("Wrong Password!").status(401)
     } catch(err){
       console.log(err);
+      res.send("ERROR!").status(404);
     }
 })
 
@@ -39,6 +41,7 @@ router.post("/signup", validationHandler(createUserSchema), async (req, res) => 
     console.log(user);
   } catch (err) {
     console.log(err);
+    res.send("ERROR!").status(404);
   }
 });
 
