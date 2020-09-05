@@ -2,6 +2,7 @@ const express = require("express");
 const { createUserSchema, loginUserSchema } = require("../utils/validation/User");
 const validationHandler = require('../utils/middlewares/validationHandler');
 const router = express.Router();
+const auth = require("../utils/middlewares/auth");
 const User = require('../models/User')
 
 router.get("/", async (req, res) => {
@@ -12,6 +13,11 @@ router.get("/", async (req, res) => {
     res.send("ERROR!").status(404);
   }
 });
+
+router.get("/account",auth.required, async(req, res) =>{
+  res.json(req.payload);
+});
+
 // User.findOne(email)
 
 router.post('/login', validationHandler(loginUserSchema), async (req, res)=>{

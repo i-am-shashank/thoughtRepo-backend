@@ -3,7 +3,7 @@ const { DB_USER, DB_PASSWORD, DB_HOST} = require('../config');
 
 const mongoURI = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/<dbname>?retryWrites=true&w=majority`
 
-mongoose.connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
+mongoose.connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true});
 
 const db = mongoose.connection;
 
