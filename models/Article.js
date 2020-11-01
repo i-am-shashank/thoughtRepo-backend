@@ -24,6 +24,7 @@ ArticleSchema.methods.slugify = function() {
     this.slug = slugify(this.title) + '-' + (Math.floor(Math.random() * Math.pow(36, 6))).toString(36);
 }
 
+
 const Article = mongoose.model('Article', ArticleSchema);
 
 module.exports = Article;
