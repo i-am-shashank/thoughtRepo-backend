@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 
 router.get("/", auth.optional, async (req, res) => {
   try {
-    const articles = await Article.find();
+    const articles = await Article.find().populate('author');
     res.json(articles);
   } catch (error) {
     console.log(error);
