@@ -12,6 +12,7 @@ app.use(express.json());
 app.use(morgan("common"));
 app.use(cors());
 
+app.get("/", (req, res) => res.json({ sucess: true }));
 app.use("/articles", articles);
 app.use("/upload", upload);
 app.use("/user", user);
